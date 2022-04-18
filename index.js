@@ -207,7 +207,7 @@ function renderState() {
 
 renderState();
 
-app.addEventListener("mousedown", (e) => {
+ app.addEventListener("mousedown", (e) => {
     if (drag === null) {
         drag = vertAt({
             x: e.offsetX,
@@ -216,14 +216,33 @@ app.addEventListener("mousedown", (e) => {
     }
 });
 
-app.addEventListener("mouseup", (e) => {
-    drag = null;
+app.addEventListener("touchstart", (e) => {
+    if (drag === null) {
+        drag = vertAt({
+            x: e.touches[0].clientX - 10,
+            y: e.touches[0].clientY - 100,
+        });
+    }
+});
+
+["mouseup", "touchend"].forEach((e) => {
+    app.addEventListener(e, (e) => {
+        drag = null;
+    });
 });
 
 app.addEventListener("mousemove", (e) => {
     if (drag !== null) {
         verts[drag].x = e.offsetX;
         verts[drag].y = e.offsetY;
+        renderState();
+    }
+});
+
+app.addEventListener("touchmove", (e) => {
+    if (drag !== null) {
+        verts[drag].x = e.touches[0].clientX - 10;
+        verts[drag].y = e.touches[0].clientY - 100;
         renderState();
     }
 });
