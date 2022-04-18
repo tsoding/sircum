@@ -19,19 +19,19 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-const BACKGROUND_COLOR = "#181818";
-const MARKER_COLOR = "#FF1818";
-const MARKER_SIZE = 10;
-const MIDDLE_COLOR = "#18FF18";
-const MIDDLE_SIZE = 3;
-const VERTS_COUNT = 3;
-const VERTS_DIST = 100;
-const EDGE_COLOR = "white";
-const NORMAL_DIST = 30;
-const NORMAL_COLOR = "#6060FF";
+let BACKGROUND_COLOR = "#181818";
+let MARKER_COLOR = "#FF1818";
+let MARKER_SIZE = 10;
+let MIDDLE_COLOR = "#18FF18";
+let MIDDLE_SIZE = 3;
+let VERTS_COUNT = 3;
+let VERTS_DIST = 100;
+let EDGE_COLOR = "white";
+let NORMAL_DIST = 30;
+let NORMAL_COLOR = "#6060FF";
 
-const app = document.getElementById("app");
-const ctx = app.getContext("2d");
+let app = document.getElementById("app");
+let ctx = app.getContext("2d");
 
 function markerHitbox(pos, size) {
     return {
