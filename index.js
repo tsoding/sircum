@@ -48,7 +48,7 @@ function putMarker(pos, size, color) {
     ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
 }
 
-const verts = (() => {
+let verts = (() => {
     const angle = 2*Math.PI/VERTS_COUNT;
     const cx = app.width/2;
     const cy = app.height/2;
