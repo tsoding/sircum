@@ -218,9 +218,10 @@ renderState();
 
 app.addEventListener("touchstart", (e) => {
     if (drag === null) {
+        const rect = app.getBoundingClientRect();
         drag = vertAt({
-            x: e.touches[0].clientX - 10,
-            y: e.touches[0].clientY - 100,
+            x: e.touches[0].clientX - rect.x,
+            y: e.touches[0].clientY - rect.y,
         });
     }
 });
@@ -241,8 +242,9 @@ app.addEventListener("mousemove", (e) => {
 
 app.addEventListener("touchmove", (e) => {
     if (drag !== null) {
-        verts[drag].x = e.touches[0].clientX - 10;
-        verts[drag].y = e.touches[0].clientY - 100;
+        const rect = app.getBoundingClientRect();
+        verts[drag].x = e.touches[0].clientX - rect.x;
+        verts[drag].y = e.touches[0].clientY - rect.y;
         renderState();
     }
 });
