@@ -205,8 +205,6 @@ function renderState() {
     }
 }
 
-renderState();
-
  app.addEventListener("mousedown", (e) => {
     if (drag === null) {
         drag = vertAt({
@@ -236,7 +234,6 @@ app.addEventListener("mousemove", (e) => {
     if (drag !== null) {
         verts[drag].x = e.offsetX;
         verts[drag].y = e.offsetY;
-        renderState();
     }
 });
 
@@ -245,6 +242,12 @@ app.addEventListener("touchmove", (e) => {
         const rect = app.getBoundingClientRect();
         verts[drag].x = e.touches[0].clientX - rect.x;
         verts[drag].y = e.touches[0].clientY - rect.y;
-        renderState();
     }
 });
+
+function loop() {
+    renderState();
+    window.requestAnimationFrame(loop);
+}
+
+window.requestAnimationFrame(loop);
