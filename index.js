@@ -205,7 +205,7 @@ function renderState() {
     }
 }
 
- app.addEventListener("mousedown", (e) => {
+app.addEventListener("mousedown", (e) => {
     if (drag === null) {
         drag = vertAt({
             x: e.offsetX,
